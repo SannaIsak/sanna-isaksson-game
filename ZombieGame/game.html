@@ -16,6 +16,8 @@
     function update() {
         clearScreen();
 
+        /*picture(mouse.x, mouse.y, ); Lägga till bild för musen*/
+
         var i = 0;
 
         while (i < 10) {
@@ -41,8 +43,13 @@
             stopUpdate();
           }
 
+          if (keyboard.space || distance(mouse, zombie) < 5) {
+             /*push away zombie*/
+        }
+
           i += 1;
         }
+      
     }
 
       </script>
