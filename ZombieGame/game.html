@@ -16,6 +16,8 @@
     function update() {
         clearScreen();
 
+        fill("black");
+
         /*picture(mouse.x, mouse.y, ); Lägga till bild för musen*/
 
         var i = 0;
@@ -38,14 +40,28 @@
             zombie.y -= zombie.speed;
           }
 
+          
+          if (keyboard.space) {
+            
+            zombie.x -= 20;
+          /* else if (zombie.x = mouse.x + 10) {
+            zombie.x += 20;
+          }*/
+
+          /*if (zombie.y < mouse.y) {
+            zombie.y += zombie.speed;
+          } else {
+            zombie.y -= zombie.speed;
+          }*/
+                  
+                    /*push away zombie*/  
+          }
+
           if (distance(mouse, zombie) < 5) {
             alert("Game over!");
             stopUpdate();
           }
 
-          if (keyboard.space || distance(mouse, zombie) < 5) {
-             /*push away zombie*/
-        }
 
           i += 1;
         }
