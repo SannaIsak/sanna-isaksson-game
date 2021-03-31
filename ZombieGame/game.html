@@ -18,7 +18,7 @@
 
         fill("black");
 
-        /*picture(mouse.x, mouse.y, ); Lägga till bild för musen*/
+        picture(mouse.x, mouse.y, "rsz_maggie_rhee2.jpg" ); /*Lägga till bild för musen*/
 
         var i = 0;
 
@@ -40,9 +40,9 @@
             zombie.y -= zombie.speed;
           }
 
+          var spaceMouse = mouse.x - 10;
           
-          if (keyboard.space) {
-            
+          if (keyboard.space && zombie.x == mouse.x - 20) {
             zombie.x -= 20;
           /* else if (zombie.x = mouse.x + 10) {
             zombie.x += 20;
