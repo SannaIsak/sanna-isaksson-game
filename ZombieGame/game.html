@@ -18,7 +18,7 @@
 
         fill("black");
 
-        picture(mouse.x, mouse.y, "rsz_maggie_rhee2.jpg" ); /*Lägga till bild för musen*/
+        picture(mouse.x, mouse.y, "rsz_maggie_rhee2.jpg"); /*Lägga till bild för musen*/
 
         var i = 0;
 
@@ -42,8 +42,18 @@
 
           var spaceMouse = mouse.x - 10;
           
-          if (keyboard.space && zombie.x == mouse.x - 20) {
-            zombie.x -= 20;
+          if (keyboard.space && distance(mouse, zombie) < 100) {
+            if(zombie.x < mouse.x) {
+              zombie.x -= 20;
+            } else if (zombie.x > mouse.x) {
+              zombie.x += 20;
+            }
+            if(zombie.y < mouse.y) {
+              zombie.y -= 20;
+            } else if (zombie.y > mouse.y) {
+              zombie.y += 20;
+            }
+            
           /* else if (zombie.x = mouse.x + 10) {
             zombie.x += 20;
           }*/
@@ -57,10 +67,10 @@
                     /*push away zombie*/  
           }
 
-          if (distance(mouse, zombie) < 5) {
+          /*if (distance(mouse, zombie) < 5) {
             alert("Game over!");
             stopUpdate();
-          }
+          }*/
 
 
           i += 1;
