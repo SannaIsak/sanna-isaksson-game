@@ -7,7 +7,7 @@
 
     i = 0;
 
-    while (i < 10) {
+    while (i < 20) {
       zombies.push({x: random(totalWidth), y: random(totalHeight), speed: random(1,7)});
 
       i += 1;
@@ -15,14 +15,15 @@
 
     function update() {
         clearScreen();
+        hideMouse();
 
         fill("black");
 
-        picture(mouse.x, mouse.y, "rsz_maggie_rhee2.jpg"); /*Lägga till bild för musen*/
+        picture(mouse.x, mouse.y, "maggie_rhee3.jpg"); /*Lägga till bild för musen*/
 
         var i = 0;
 
-        while (i < 10) {
+        while (i < 20) {
 
           var zombie = zombies[i];
 
@@ -39,10 +40,9 @@
           } else {
             zombie.y -= zombie.speed;
           }
-
-          var spaceMouse = mouse.x - 10;
           
-          if (keyboard.space && distance(mouse, zombie) < 100) {
+            
+          if (keyboard.space && distance(mouse, zombie) < 150) { /*to push away zombies*/
             if(zombie.x < mouse.x) {
               zombie.x -= 20;
             } else if (zombie.x > mouse.x) {
@@ -53,24 +53,13 @@
             } else if (zombie.y > mouse.y) {
               zombie.y += 20;
             }
-            
-          /* else if (zombie.x = mouse.x + 10) {
-            zombie.x += 20;
-          }*/
-
-          /*if (zombie.y < mouse.y) {
-            zombie.y += zombie.speed;
-          } else {
-            zombie.y -= zombie.speed;
-          }*/
-                  
-                    /*push away zombie*/  
           }
 
-          /*if (distance(mouse, zombie) < 5) {
+          if (distance(mouse, zombie) < 10) {
             alert("Game over!");
             stopUpdate();
-          }*/
+            showMouse();
+          }
 
 
           i += 1;
