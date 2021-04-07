@@ -3,6 +3,24 @@
 <head>
     <script src="https://koda.nu/simple.js">
 
+    var currentScreen = startScreen;
+
+    function update() {
+      currentScreen();
+    }
+
+    function startScreen() {
+      /*fill("black");*/
+      text(totalWidth/2, totalHeight/2, 30, "GAME", "red");
+      /*var playButton = text(500, 400, 30, "Play now", "red");*/
+      rectangle(100, 100, 20, 30, "red");
+
+      
+      document.getElementById("playKnapp").addEventListener("click", function() {alert("hello world");});
+
+
+    }
+
     var zombies = [];
 
     i = 0;
@@ -13,7 +31,7 @@
       i += 1;
     }
 
-    function update() {
+    function game() {
         clearScreen();
         hideMouse();
 
@@ -66,7 +84,8 @@
         }
       
     }
-
+    
+    
       </script>
 
     <meta charset="UTF-8">
@@ -75,6 +94,8 @@
     <title>Document</title>
 </head>
 <body>
+
+  <p id="playKnapp">Play now</p>
     
 </body>
 </html>
