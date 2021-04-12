@@ -1,104 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="game.css">
-    <script src="https://koda.nu/simple.js">
-
-    var currentScreen = startScreen;
-
-    function update() {
-      currentScreen();
-    }
-
-    function startScreen() {
-      /*fill("black");*/
-      
-
-      
-      /*document.getElementById("playButton").addEventListener("click", function() {alert("hello world");});*/
-
-
-    }
-
-    var zombies = [];
-
-    i = 0;
-
-    while (i < 20) {
-      zombies.push({x: random(totalWidth), y: random(totalHeight), speed: random(1,7)});
-
-      i += 1;
-    }
-
-    function game() {
-        clearScreen();
-        hideMouse();
-
-        fill("black");
-
-        picture(mouse.x, mouse.y, "maggie_rhee3.jpg"); /*Lägga till bild för musen*/
-
-        var i = 0;
-
-        while (i < 20) {
-
-          var zombie = zombies[i];
-
-          picture(zombie.x, zombie.y, "http://spelprogrammering.nu/bilder/zombie.png");
-
-          if (zombie.x < mouse.x) {
-            zombie.x += zombie.speed;
-          } else {
-            zombie.x -= zombie.speed;
-          }
-
-          if (zombie.y < mouse.y) {
-            zombie.y += zombie.speed;
-          } else {
-            zombie.y -= zombie.speed;
-          }
-          
-            
-          if (keyboard.space && distance(mouse, zombie) < 150) { /*to push away zombies*/
-            if(zombie.x < mouse.x) {
-              zombie.x -= 20;
-            } else if (zombie.x > mouse.x) {
-              zombie.x += 20;
-            }
-            if(zombie.y < mouse.y) {
-              zombie.y -= 20;
-            } else if (zombie.y > mouse.y) {
-              zombie.y += 20;
-            }
-          }
-
-          if (distance(mouse, zombie) < 10) {
-            alert("Game over!");
-            stopUpdate();
-            showMouse();
-          }
-
-
-          i += 1;
-        }
-      
-    }
-    
-    
-      </script>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <script src="https://koda.nu/simple.js">
+
+        /*function pageRedirect() {
+            window.location.replace = ("game-menu.html");
+        }
+
+        setTimeout("pageRedirect()", 10); ,to redirect, doesn't work yet though*/
+    
+        var zombies = [];
+    
+        i = 0;
+    
+        while (i < 20) {
+          zombies.push({x: random(totalWidth), y: random(totalHeight), speed: random(1,7)});
+    
+          i += 1;
+        }
+    
+        function update() {
+            clearScreen();
+            hideMouse();
+    
+            fill("black");
+    
+            picture(mouse.x, mouse.y, "maggie_rhee3.jpg"); /*Lägga till bild för musen*/
+    
+            var i = 0;
+    
+            while (i < 20) {
+    
+              var zombie = zombies[i];
+    
+              picture(zombie.x, zombie.y, "http://spelprogrammering.nu/bilder/zombie.png");
+    
+              if (zombie.x < mouse.x) {
+                zombie.x += zombie.speed;
+              } else {
+                zombie.x -= zombie.speed;
+              }
+    
+              if (zombie.y < mouse.y) {
+                zombie.y += zombie.speed;
+              } else {
+                zombie.y -= zombie.speed;
+              }
+              
+                
+              if (keyboard.space && distance(mouse, zombie) < 150) { /*to push away zombies*/
+                if(zombie.x < mouse.x) {
+                  zombie.x -= 20;
+                } else if (zombie.x > mouse.x) {
+                  zombie.x += 20;
+                }
+                if(zombie.y < mouse.y) {
+                  zombie.y -= 20;
+                } else if (zombie.y > mouse.y) {
+                  zombie.y += 20;
+                }
+              }
+    
+              if (distance(mouse, zombie) < 10) {
+                text(400, 200, 70, "Game over", "red")
+                stopUpdate();
+                showMouse();
+                /*pageRedirect(); to redirect, doesn't work yet though*/ 
+              }
+
+    
+    
+              i += 1;
+            }
+          
+        }
+    
+      </script>
 </head>
 <body>
 
-  <h1 id="headerTitle">Zombie attack</h1>
-  <div class="menuBoard">
-    <p id="playButton">Play now</p>
-    <p id="changeCharacter">Change character</p>
-  </div>
     
 </body>
 </html>

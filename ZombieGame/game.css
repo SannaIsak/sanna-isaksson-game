@@ -6,22 +6,28 @@ body {
     color: red;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 50px;
+    font-size: 60px;
+    margin-top: 100px;
 }
 
 .menuBoard {
     text-align: center;
+    margin: auto;
+    width: 40%;
 }
 
-#playButton , #changeCharacter {
+#playButton {
     color: red;
-    float: left;
-    padding: 10px;
+    padding: 5px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
-    display: table;
-    margin: auto;
-    
+}
+
+#changeCharacter {
+    color: red;
+    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
 }
 
 #playButton:hover {
