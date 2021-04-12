@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="game.css">
     <script src="https://koda.nu/simple.js">
 
     var currentScreen = startScreen;
@@ -11,12 +12,10 @@
 
     function startScreen() {
       /*fill("black");*/
-      text(totalWidth/2, totalHeight/2, 30, "GAME", "red");
-      /*var playButton = text(500, 400, 30, "Play now", "red");*/
-      rectangle(100, 100, 20, 30, "red");
+      
 
       
-      document.getElementById("playKnapp").addEventListener("click", function() {alert("hello world");});
+      /*document.getElementById("playButton").addEventListener("click", function() {alert("hello world");});*/
 
 
     }
@@ -95,7 +94,11 @@
 </head>
 <body>
 
-  <p id="playKnapp">Play now</p>
+  <h1 id="headerTitle">Zombie attack</h1>
+  <div class="menuBoard">
+    <p id="playButton">Play now</p>
+    <p id="changeCharacter">Change character</p>
+  </div>
     
 </body>
 </html>
