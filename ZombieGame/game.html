@@ -18,7 +18,7 @@
     
         i = 0;
     
-        while (i < 20) {
+        while (i < 20) {  /*skapar flera zombies och lägger i en lista*/
           zombies.push({x: random(totalWidth), y: random(totalHeight), speed: random(1,7)});
     
           i += 1;
@@ -30,17 +30,18 @@
     
             fill("black");
     
-            picture(mouse.x, mouse.y, "maggie_rhee3.jpg"); /*Lägga till bild för musen*/
+            picture(mouse.x, mouse.y, "maggie_rhee3.jpg"); /*bild där musen är, för spelaren*/
     
             var i = 0;
     
-            while (i < 20) {
+            while (i < 20) { /*loopar tills i = 20, gör att vi kan gå igenom hela listan av zombies*/
     
               var zombie = zombies[i];
     
-              picture(zombie.x, zombie.y, "http://spelprogrammering.nu/bilder/zombie.png");
+              picture(zombie.x, zombie.y, "zombie_pic.png"); /*bild för zombies*/
     
-              if (zombie.x < mouse.x) {
+              /*gör att alla zombies i listan rör sig*/
+              if (zombie.x < mouse.x) { 
                 zombie.x += zombie.speed;
               } else {
                 zombie.x -= zombie.speed;
@@ -52,8 +53,8 @@
                 zombie.y -= zombie.speed;
               }
               
-                
-              if (keyboard.space && distance(mouse, zombie) < 150) { /*to push away zombies*/
+              /*funktion för att putta undan zombies*/
+              if (keyboard.space && distance(mouse, zombie) < 150) { 
                 if(zombie.x < mouse.x) {
                   zombie.x -= 20;
                 } else if (zombie.x > mouse.x) {
@@ -65,8 +66,9 @@
                   zombie.y += 20;
                 }
               }
-    
-              if (distance(mouse, zombie) < 10) {
+     
+              /*funktion för att avsluta spelet*/
+              if (distance(mouse, zombie) < 10) { 
                 text(400, 200, 70, "Game over", "red")
                 stopUpdate();
                 showMouse();
