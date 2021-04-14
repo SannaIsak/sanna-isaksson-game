@@ -33,3 +33,8 @@ body {
 #playButton:hover {
     background-color: grey;
 }
+
+#backToMenu {
+    color: red;
+    font-size: 40px;
+}
