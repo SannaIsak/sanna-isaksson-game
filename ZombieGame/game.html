@@ -1,25 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="game.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <script src="https://koda.nu/simple.js">
-
-        /*function pageRedirect() {
-            window.location.replace = ("game-menu.html");
-        }
-
-        setTimeout("pageRedirect()", 10); ,to redirect, doesn't work yet though*/
+    <script src="https://koda.nu/simple.js"> /*bibloteket jag använder för spelet*/
     
         var zombies = [];
     
         i = 0;
     
-        while (i < 20) {  /*skapar flera zombies och lägger i en lista*/
-          zombies.push({x: random(totalWidth), y: random(totalHeight), speed: random(1,7)});
+        while (i < 25) {  /*skapar flera zombies och lägger i en lista*/
+          zombies.push({x: random(totalWidth), y: random(totalHeight), speed: random(2,7)});
     
           i += 1;
         }
@@ -28,13 +23,11 @@
             clearScreen();
             hideMouse();
     
-            fill("black");
-    
             picture(mouse.x, mouse.y, "maggie_rhee3.jpg"); /*bild där musen är, för spelaren*/
     
             var i = 0;
     
-            while (i < 20) { /*loopar tills i = 20, gör att vi kan gå igenom hela listan av zombies*/
+            while (i < 25) { /*loopar tills i = 20, gör att vi kan gå igenom hela listan av zombies*/
     
               var zombie = zombies[i];
     
@@ -54,7 +47,7 @@
               }
               
               /*funktion för att putta undan zombies*/
-              if (keyboard.space && distance(mouse, zombie) < 150) { 
+              if (keyboard.space && distance(mouse, zombie) < 100) { 
                 if(zombie.x < mouse.x) {
                   zombie.x -= 20;
                 } else if (zombie.x > mouse.x) {
@@ -70,9 +63,14 @@
               /*funktion för att avsluta spelet*/
               if (distance(mouse, zombie) < 10) { 
                 text(400, 200, 70, "Game over", "red")
+                text(320, 235, 20, "You will be back to the menu in 5 seconds", "red")
                 stopUpdate();
                 showMouse();
-                /*pageRedirect(); to redirect, doesn't work yet though*/ 
+                /*funktion som flyttar än till menyn efter att man har dött i spelet*/
+                setTimeout(() => {
+                  window.location.replace("game-menu.html");
+                }, 5000);
+                
               }
 
     
@@ -85,9 +83,6 @@
       </script>
 </head>
 <body>
-
-  <p id="backToMenu">Click here to go back to menu</p>
-
     
 </body>
 </html>
